@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block content %}
+    <div class="row">
+        {% for link in links %}
+            <div class="col-md-4 col-sm-6">
+                {% if link.type == 2 %}
+                    <a href="#" onclick="myFunction('{{ link.url }}')">
+                {% else %}
+                    <a href="{{ link.url }}">
+                {% endif %}
+                <div class="card_padding">
+                    <div class="card card_center"
+                         style="background-color: {{ link.bgcolor }}; color: {{ link.textcolor }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ link.title }}</h5>
+                            <p class="card-text">{{ link.description }}</p>
+                            {% if link.icon %}
+                                <img class="card_img svg" src="{% static "icon/"|add:link.icon %}"
+                                     alt="{{ link.icon }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block bootstrap4_extra_script %}
+    <script>
+        function myFunction(link) {
+            $.ajax({
+                url: link,
+                dataType: 'json',
+                success: function (data) {
+                    if (!data.ok) {
+                        if (typeof data.reason !== 'undefined') {
+                            alert("{% trans "You cannot do that because you are a candidate member!" %}");
+                        } else {
+                            alert("{% trans "Something went wrong!" %}");
+                        }
+                    }
+                }
+            });
+        }
+
+        jQuery('img.svg').each(function () {
+            var $img = jQuery(this);
+            var imgID = $img.attr('id');
+            var imgClass = $img.attr('class');
+            var imgURL = $img.attr('src');
+            jQuery.get(imgURL, function (data) {
+                // Get the SVG tag, ignore the rest
+                var $svg = jQuery(data).find('svg');
+
+                // Add replaced image's ID to the new SVG
+                if (typeof imgID !== 'undefined') {
+                    $svg = $svg.attr('id', imgID);
+                }
+                // Add replaced image's classes to the new SVG
+                if (typeof imgClass !== 'undefined') {
+                    $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                }
+
+                // Remove any invalid XML tags as per http://validator.w3.org
+                $svg = $svg.removeAttr('xmlns:a');
+
+                // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+                if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                    $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+                }
+
+                // Replace image with new SVG
+                $img.replaceWith($svg);
+
+            }, 'xml');
+
+        });
+
+    </script>
+{% endblock %}

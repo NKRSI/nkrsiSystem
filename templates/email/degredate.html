@@ -1,0 +1,13 @@
+{% extends 'email/base-mail.html' %}
+{% block content %}
+    {% autoescape off %}
+        Cześć, {{ username }},<br/>
+        Informujemy, że prawdopodobnie z powodu braku aktywności w NKRSI lub utraty statusu studenta UJ twoje konto członka
+        stało się nieaktywne i tym samym tracisz status członka koła.<br/>
+        <br/>
+        Jeżeli nie zgadzasz się z tą decyzją, skontaktuj się z przedstawicielem zarządu koła.<br/>
+        <br/>
+        Jeżeli ukończyłeś studia, a chcesz pozostać związany z Kołem, zgłoś się do koła o status członka sympatyka :) <br/>
+        <br/>
+    {% endautoescape %}
+{% endblock %}

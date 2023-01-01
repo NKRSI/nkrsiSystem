@@ -1,0 +1,18 @@
+{% extends 'email/base-mail.html' %}
+{% block content %}
+    {% autoescape off %}
+        Cześć, {{ username }},<br/>
+        witaj w Kole Robotyki i Sztucznej Inteligencji UJ, gratulujemy udanego wyboru. Twoje konto do platformy koła
+        zostało utworzone. Dostęp do niej jest możliwy za pomocą linku:<br/>
+        <a href="https://nkr.ii.uj.edu.pl">https://nkr.ii.uj.edu.pl</a><br/>
+        <br/>
+        Jeżeli jesteś członkiem-kandydatem, to nie masz jeszcze możliwości otwierania drzwi do siedziby - ta możliwość
+        zostaje odblokowana po uzyskaniu co najmniej statusu członka zwyczajnego. Jeżeli chcesz awansować, to musisz zyskać to
+        aprobatę członków zarządu Koła. Zachęcamy do aktywnej działalności!<br/>
+        <br/>
+        Loginem jest twój adres e-mail. Hasło zostało wygenerowane automatycznie: {{ password }}. Możesz je zmienić po
+        zalogowaniu.<br/>
+        <br/>
+        Do komunikacji w kole używamy Discorda. Aby dołączyć użyj linku: <a href="https://discord.gg/rn3SASf4tk">https://discord.gg/rn3SASf4tk</a><br/>
+    {% endautoescape %}
+{% endblock %}

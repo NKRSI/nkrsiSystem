@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n static crispy_forms_tags %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">{% trans 'Name and surname' %}</th>
+            <th scope="col">{% trans 'Function' %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <th scope="col">{{ user.id }}</th>
+                <th scope="col"><a href="{% url 'user-by-id' user_id=user.id %}">
+                    {% if user.get_full_name != '' %}
+                        {{ user.get_full_name }}
+                    {% else %}
+                        {{ user.email }}
+                    {% endif %}
+                </a></th>
+                <th scope="col">{% if user.function != "" %}
+                    {{ user.function }}
+                {% else %}
+                    {% if user.is_staff %}
+                        {% trans 'Staff member' %}
+                    {% elif user.is_candidate %}
+                        {% trans 'Candidate member' %}
+                    {% else %}
+                        {% trans 'Regular member' %}
+                    {% endif %}
+                {% endif %}</th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

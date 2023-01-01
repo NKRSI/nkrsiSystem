@@ -1,0 +1,12 @@
+requests==2.28.1
+pypjlink==1.1.1
+django==3.2.16
+psycopg2==2.9.5
+django-bootstrap4==22.3
+django-crispy-forms==1.14.0
+django-colorfield==0.8.0
+django-phonenumber-field==7.0.1
+phonenumberslite==8.13.2
+docutils==0.19
+whitenoise==6.2.0
+Pillow==9.3.0

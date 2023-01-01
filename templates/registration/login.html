@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load bootstrap4 i18n static crispy_forms_tags %}
+{% block bootstrap4_extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static "signin.css" %}">
+    <title>NKRSI System</title>
+{% endblock %}
+{% block bootstrap4_content %}
+    <div class="container content">
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form class="form-signin" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+                    <a href="{% url 'front-index' %}"> <img class="mb-4" src="{% static "logo.svg" %}" alt="logo" height="144px"></a>
+                    {% if user.is_authenticated %}
+                        <p class="errornote">
+                            {% blocktrans trimmed %}
+                                You are authenticated as {{ username }}, but are not authorized to
+                                access this page. Would you like to login to a different account?
+                            {% endblocktrans %}
+                        </p>
+                        {% if form.errors and not form.non_field_errors %}
+                            <p class="errornote">
+                                {% if form.errors.items|length == 1 %}
+                                    {% trans "Please correct the error below." %}{% else %}
+                                    {% trans "Please correct the errors below." %}{% endif %}
+                            </p>
+                        {% endif %}
+                    {% endif %}
+                    {{ form|crispy }}
+                    {% url 'password_reset' as password_reset_url %}
+                    {% if password_reset_url %}
+                        <div class="password-reset-link mb-3">
+                            <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+                        </div>
+                    {% endif %}
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans 'Log in' %}</button>
+                    <p class="mt-3 mb-3 text-muted">&copy; NKRSI UJ</p>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+{% endblock %}

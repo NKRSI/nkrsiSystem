@@ -1,0 +1,9 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('NKRSI System - admin panel') }}{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'index' %}">{{ site_header|default:_('NKRSI') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

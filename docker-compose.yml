@@ -1,0 +1,9 @@
+version: '3'
+services:
+  nkrsi-system:
+    build: .
+    ports:
+      - "8000:80"
+    environment:
+      - POSTGRES_HOST=192.168.0.200
+      - POSTGRES_PORT=5432

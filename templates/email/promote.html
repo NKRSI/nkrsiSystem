@@ -1,0 +1,11 @@
+{% extends 'email/base-mail.html' %}
+{% block content %}
+    {% autoescape off %}
+        Cześć, {{ username }},<br/>
+        Informujemy, że zgodnie z decyzją zarządu NKRSI, uzyskujesz status członka zwyczajnego. Gratulujemy i
+        zachęcamy do aktywnego udziału w życiu Koła!<br/>
+        <br/>
+        Jeżeli masz uwagi, co do tej decyzji, skontaktuj się z przedstawicielem zarządu koła.<br/>
+        <br/>
+    {% endautoescape %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'bootstrap4/bootstrap4.html' %}
+{% load bootstrap4 static i18n %}
+{% block bootstrap4_extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static "nkrsistyle.css" %}">
+    {% block extra_head %}{% endblock %}
+{% endblock %}
+{% block bootstrap4_title %}System Naukowego Koła Robotyki i Sztucznej Inteligencji{% endblock %}
+{% block bootstrap4_content %}
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="{% url 'index' %}">NKRSI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'front-index' %}">{% trans 'Home external page' %}</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">{% trans 'Home page' %}</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'user' %}">{% trans 'My profile' %}</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'user-list' %}">{% trans 'All users' %}</a>
+                    </li>
+                    {% if request.user.is_superuser %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'admin:index' %}">{% trans 'Admin Panel' %}</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container content">
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+        {% block content %}(no content){% endblock %}
+    </div>
+{% endblock %}
