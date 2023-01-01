@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            {% for question in questions %}
+                <h4>{{ question.question }}</h4>
+                <div>{{ question.answer | safe }}</div>
+                {% if not forloop.last %}
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
