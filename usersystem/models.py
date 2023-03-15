@@ -23,7 +23,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = PhoneNumberField(_('phone'), blank=True, null=True)
     function = models.CharField(_('function'), default="", blank=True, max_length=30,
                                 help_text=_('Position in NKRSI. If blank it will be depended on candidate status.'))
-
+    github_username = models.CharField(_('GitHub username'), default="", blank=True, max_length=39)
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
@@ -39,6 +39,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.first_name
+
+    def get_user_github_link(self):
+        return f'https://github.com/{self.github_username}'
 
     def email_user(self, subject, message, from_email=None, **kwargs):
         send_mail(subject, message, from_email, [self.email], **kwargs)

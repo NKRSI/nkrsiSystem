@@ -7,6 +7,7 @@
             <li class="list-group-item">{% trans 'Email' %}: {{ user.email }}</li>
         {% endif %}
         <li class="list-group-item">{% trans 'Name and surname' %}: {{ user.get_full_name }}</li>
+        <li class="list-group-item"> {% trans 'GitHub username' %}: <a href="{{ user.get_user_github_link }}">{{ user.github_username }}</a></li>
         <li class="list-group-item">{% trans 'Phone number' %}: {{ user.phone }}</li>
         <li class="list-group-item">{% trans 'NKRSI join date' %}: {{ user.date_joined|localize }}</li>
         <li class="list-group-item">

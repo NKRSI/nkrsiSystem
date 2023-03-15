@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres:11"
+    volumes:
+      - ./postgres_config/docker-entrypoint-initdb.d/ :/docker-entrypoint-initdb.d/
+    environment:
+      config_file: '/docker-entrypoint-initdb.d/postgresql.conf'
+      POSTGRES_PASSWORD: 'robotUJ993'
+    ports:
+      - "5432:5432"
+

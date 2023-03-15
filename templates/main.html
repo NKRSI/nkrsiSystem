@@ -6,6 +6,8 @@
             <div class="col-md-4 col-sm-6">
                 {% if link.type == 2 %}
                     <a href="#" onclick="myFunction('{{ link.url }}')">
+                {% elif link.type == 3 %}
+                    <a target="_blank" href="{{ link.url }}">
                 {% else %}
                     <a href="{{ link.url }}">
                 {% endif %}

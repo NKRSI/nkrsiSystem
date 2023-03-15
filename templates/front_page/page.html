@@ -1,0 +1,33 @@
+{% extends 'front_page/base.html' %}
+{% load static i18n %}
+{% block main_cointainer %}
+
+    <div class="container content">
+        <div class="jumbotron">
+            <h3 class="display-5">{{ article.title }}</h3>
+            <p class="lead">
+                {{ article.text|safe }}
+            </p>
+            <div class="container">
+
+                {% for image in article.frontpageimage_set.all %}
+                    <div class="row">
+
+                        {% if forloop.counter|divisibleby:2 %}
+                            <div class="col-lg-4">
+                                <img src="{% get_media_prefix %}{{ image.img }}" class="img-thumbnail">
+                            </div>
+                            <div class="col-lg-8 align-self-center">{{ image.text|safe }}</div>
+
+                        {% else %}
+                            <div class="col-lg-8 align-self-center">{{ image.text|safe }}</div>
+                            <div class="col-lg-4 order-first order-lg-last">
+                                <img src="{% get_media_prefix %}{{ image.img }}" class="img-thumbnail">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

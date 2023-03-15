@@ -10,5 +10,6 @@ class EditProfileForm(UserChangeForm):
             'first_name',
             'last_name',
             'password',
-            'phone'
+            'phone',
+            'github_username',
         )

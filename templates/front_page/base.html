@@ -1,0 +1,42 @@
+{% extends 'bootstrap4/bootstrap4.html' %}
+{% load bootstrap4 static i18n %}
+{% block bootstrap4_extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static "frontpage.css" %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    {% block extra_head %}{% endblock %}
+{% endblock %}
+{% block bootstrap4_title %}Strona Naukowego Koła Robotyki i Sztucznej Inteligencji UJ{% endblock %}
+{% block bootstrap4_content %}
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-red">
+        <a class="navbar-brand" href="{% url 'front-index' %}">NKRSI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                {% if not request.user.is_authenticated %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'login' %}">{% trans 'Log in' %}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">{% trans 'Internal system' %}</a>
+                    </li>
+                {% endif %}
+            {% for page in pages %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'article' title=page.slug %}">{{ page.title }}</a>
+                </li>
+            {% endfor %}
+
+            </ul>
+        </div>
+    </nav>
+    {% block main_cointainer %}
+        <div class="container content">
+            {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+            {% block content %}(no content){% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

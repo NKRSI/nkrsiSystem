@@ -7,6 +7,6 @@ RUN apt-get -y install gettext
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 COPY ./static /static
-EXPOSE 80 8080 4352
+EXPOSE 80 8080 4352 6379
 
 CMD bash -c "sleep 10; python ./manage.py migrate; python ./manage.py compilemessages -l pl; python ./manage.py runserver 0.0.0.0:80;"

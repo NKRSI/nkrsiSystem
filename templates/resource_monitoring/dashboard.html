@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for server_name, gpu_info, ram_info, cpu_info in server_infos %}
+    <div class="card">
+
+        <div class="card-body">
+            <h4>{{ server_name }}</h4>
+            <h5> GPU </h5>
+            {{ gpu_info | safe }}
+
+            <h5> RAM </h5>
+            {{ ram_info | safe }}
+
+            <h5> CPU Temperature </h5>
+            {{ cpu_info | safe }}
+
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

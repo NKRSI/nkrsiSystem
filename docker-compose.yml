@@ -7,3 +7,24 @@ services:
     environment:
       - POSTGRES_HOST=192.168.0.200
       - POSTGRES_PORT=5432
+      - REDIS_HOST=192.168.1.2
+      - REDIS_PORT=6379
+      - RESOURCE_MONITORING_PORT=11223
+  celery:
+    build: .
+    command: celery -A nkrsiSystem worker -l info
+    environment:
+      - POSTGRES_HOST=192.168.0.200
+      - POSTGRES_PORT=5432
+      - REDIS_HOST=192.168.1.2
+      - REDIS_PORT=6379
+      - RESOURCE_MONITORING_PORT=11223
+  celery-beat:
+    build: .
+    command: celery -A nkrsiSystem.celery beat -l info
+    environment:
+      - POSTGRES_HOST=192.168.0.200
+      - POSTGRES_PORT=5432
+      - REDIS_HOST=192.168.1.2
+      - REDIS_PORT=6379
+      - RESOURCE_MONITORING_PORT=11223

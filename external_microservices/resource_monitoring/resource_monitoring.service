@@ -1,0 +1,11 @@
+[Unit]
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/external_microservices/resource_monitoring
+ExecStart=/opt/external_microservices/venv/bin/python3 app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,77 @@
+{% extends 'front_page/base.html' %}
+{% load static i18n %}
+{% block main_cointainer %}
+    <div id="carouselNKRSI" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselNKRSI" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselNKRSI" data-slide-to="1"></li>
+{#            <li data-target="#carouselNKRSI" data-slide-to="2"></li>#}
+        </ol>
+        <div class="carousel-inner" style="height: 20em">
+            <div class="carousel-item active">
+                <img src="{% static 'logo.svg' %}" class="carousel-img" alt="...">
+                <div class="carousel-caption">
+                    <p>Witaj na stronie Naukowego Koła Robotyki i Sztucznej Inteligencji UJ.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="https://www.facebook.com/nkrsiuj/">
+                    <img src="{% static 'facebook.png' %}" class="carousel-img" alt="...">
+                    <div class="carousel-caption">
+                        <p>Odwiedź nas na Facebooku.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselNKRSI" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselNKRSI" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="container content">
+        <div class="jumbotron">
+            <h3 class="display-5">Aktualności z Facebooka!</h3>
+            <p class="lead">{{ fb_news_text }}</p>
+            <p>{{ fb_news_date }}</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="https://www.facebook.com/nkrsiuj/" role="button">
+                    Przejdź do aktualności</a>
+            </p>
+        </div>
+
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-6 map-col">
+                    <div id="map"></div>
+                </div>
+                <div class="col-md-6">
+                    Siedziba Naukowego Koła Robotyki i Sztucznej Inteligencji<br>
+                    Wydział Matematyki i Informatyki UJ<br>
+                    Pokoje: 1164, 1162<br>
+                    ul. Stanisława Łojasiewicza 6<br>
+                    30-348 Kraków<br>
+                    E-mail: <a href="mailto:ujrobotics@gmail.com">ujrobotics@gmail.com</a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+{% block bootstrap4_extra_script %}
+    <script>
+        function initMap() {
+            var wmii = {lat: 50.030521, lng: 19.906964};
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 15, center: wmii});
+            var marker = new google.maps.Marker({position: wmii, map: map});
+        }
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEL1eAXRFWmU2wJnwvUzXpR3pZzev_r40&callback=initMap">
+    </script>
+{% endblock %}

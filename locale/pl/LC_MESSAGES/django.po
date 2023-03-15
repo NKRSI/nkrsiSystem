@@ -1,0 +1,426 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-29 17:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: .\frontpage\models.py:7 .\frontpage\models.py:27 .\usersystem\models.py:21
+#: .\usersystem\models.py:50
+msgid "order"
+msgstr "kolejność"
+
+#: .\frontpage\models.py:8 .\frontpage\models.py:28 .\usersystem\models.py:22
+#: .\usersystem\models.py:51
+msgid ""
+"Order in which links will be presented on home page. The lower number the "
+"higher position."
+msgstr ""
+"Kolejność, w jakiej obiekty będą pokazywały się na stronie. Niższy "
+"numer oznacza wyższą pozycję."
+
+#: .\frontpage\models.py:10 .\usersystem\models.py:53
+msgid "title"
+msgstr "tytuł"
+
+#: .\frontpage\models.py:12 .\frontpage\models.py:30
+msgid "text"
+msgstr "tekst"
+
+#: .\frontpage\models.py:19
+msgid "front subpage"
+msgstr "podstona zewnętrzna"
+
+#: .\frontpage\models.py:20
+msgid "front subpages"
+msgstr "podstrony zewnętrzne"
+
+#: .\frontpage\models.py:31
+msgid "image"
+msgstr "obraz"
+
+#: .\frontpage\models.py:35
+msgid "front subpage image"
+msgstr "obrazek podstrony zewnętrznej"
+
+#: .\frontpage\models.py:36
+msgid "front subpage images"
+msgstr "obrazki podstrony zewnętrznej"
+
+#: .\templates\admin\base.html:39
+msgid "Welcome,"
+msgstr ""
+
+#: .\templates\admin\base.html:44
+msgid "View site"
+msgstr ""
+
+#: .\templates\admin\base.html:49
+msgid "Documentation"
+msgstr ""
+
+#: .\templates\admin\base.html:52
+msgid "Log out"
+msgstr ""
+
+#: .\templates\admin\base.html:62
+msgid "Home"
+msgstr ""
+
+#: .\templates\admin\base_site.html:3
+msgid "NKRSI System - admin panel"
+msgstr "NKRSI System - panel administracyjny"
+
+#: .\templates\admin\base_site.html:6
+msgid "NKRSI"
+msgstr "NKRSI"
+
+#: .\templates\base.html:19
+msgid "Home external page"
+msgstr "Strona zewnętrzna"
+
+#: .\templates\base.html:22
+msgid "Home page"
+msgstr "Strona główna"
+
+#: .\templates\base.html:25
+msgid "My profile"
+msgstr "Mój profil"
+
+#: .\templates\base.html:28
+msgid "All users"
+msgstr "Wszyscy członkowie"
+
+#: .\templates\base.html:32
+msgid "Admin Panel"
+msgstr "Panel Administracyjny"
+
+#: .\templates\base.html:37
+msgid "Logout"
+msgstr "Wyloguj"
+
+#: .\templates\front_page\base.html:20 .\templates\registration\login.html:39
+#: .\templates\registration\password_reset_complete.html:11
+msgid "Log in"
+msgstr "Zaloguj się"
+
+#: .\templates\front_page\base.html:24
+msgid "Internal system"
+msgstr "System wewnętrzny"
+
+#: .\templates\main.html:38
+msgid "You cannot do that because you are a candidate member!"
+msgstr "Nie masz dostępu do tego - jesteś członkiem kandydatem"
+
+#: .\templates\main.html:40
+msgid "Something went wrong!"
+msgstr "Coś poszło nie tak!"
+
+#: .\templates\registration\logged_out.html:4
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr ""
+
+#: .\templates\registration\logged_out.html:6
+msgid "Log in again"
+msgstr ""
+
+#: .\templates\registration\login.html:19
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: .\templates\registration\login.html:27
+msgid "Please correct the error below."
+msgstr ""
+
+#: .\templates\registration\login.html:28
+msgid "Please correct the errors below."
+msgstr ""
+
+#: .\templates\registration\login.html:36
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: .\templates\registration\password_change_done.html:6
+msgid "Your password was changed."
+msgstr "Hasło do konta radius zmienione."
+
+#: .\templates\registration\password_change_form.html:12
+#: .\templates\registration\password_reset_confirm.html:15
+msgid "Change my password"
+msgstr ""
+
+#: .\templates\registration\password_reset_complete.html:9
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:8
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:21
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:8
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:10
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:2
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at NKRSI system."
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:12
+msgid "The NKRSI's team"
+msgstr "Zespół NKRSI"
+
+#: .\templates\registration\password_reset_form.html:7
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr ""
+
+#: .\templates\registration\password_reset_form.html:13
+msgid "Reset my password"
+msgstr ""
+
+#: .\templates\user\change_password.html:4 .\templates\user\edit_profile.html:4
+#: .\templates\user\profile.html:4
+msgid "User"
+msgstr "Użytkownik"
+
+#: .\templates\user\change_password.html:8
+msgid "Change password"
+msgstr ""
+
+#: .\templates\user\edit_profile.html:8
+msgid "Save"
+msgstr "Zapisz"
+
+#: .\templates\user\profile.html:7
+msgid "Email"
+msgstr ""
+
+#: .\templates\user\profile.html:9 .\templates\user\user_list.html:8
+msgid "Name and surname"
+msgstr "Imię i nazwisko"
+
+#: .\templates\user\profile.html:10
+msgid "Phone number"
+msgstr "Numer telefonu"
+
+#: .\templates\user\profile.html:11
+msgid "NKRSI join date"
+msgstr "Data dołączenia do NKRSI"
+
+#: .\templates\user\profile.html:17 .\templates\user\user_list.html:27
+msgid "Staff member"
+msgstr "Członek zarządu"
+
+#: .\templates\user\profile.html:19 .\templates\user\user_list.html:29
+msgid "Candidate member"
+msgstr "Członek-kandydat"
+
+#: .\templates\user\profile.html:21 .\templates\user\user_list.html:31
+msgid "Regular member"
+msgstr "Członek zwyczajny"
+
+#: .\templates\user\profile.html:28
+msgid "Edit profile"
+msgstr "Edytuj profil"
+
+#: .\templates\user\user_list.html:9
+msgid "Function"
+msgstr "Funkcja"
+
+#: .\usersystem\models.py:20 .\usersystem\models.py:27
+msgid "question"
+msgstr "pytanie"
+
+#: .\usersystem\models.py:24
+msgid "answer"
+msgstr "odpowiedź"
+
+#: .\usersystem\models.py:28
+msgid "questions"
+msgstr "pytania"
+
+#: .\usersystem\models.py:41
+msgid "url"
+msgstr "url"
+
+#: .\usersystem\models.py:42
+msgid "type"
+msgstr "typ"
+
+#: .\usersystem\models.py:42
+msgid "withoutAJAX"
+msgstr "bezAJAX"
+
+#: .\usersystem\models.py:42
+msgid "localWithAJAX"
+msgstr "lokalnyzAJAXem"
+
+#: .\usersystem\models.py:43
+msgid ""
+"\"withoutAJAX\" means standard link, \"localWithAJAX\" means local links "
+"accessible using AJAX technology (currently only door opening: \"ajax/door\" "
+"and projector turning on/off: \"ajax/projector\")"
+msgstr ""
+"\"bezAJAX\" oznacza standardowy link, \"lokalnyzAJAXem\" oznacza link "
+"wykorzystujący technologię AJAX (obecnie służy to tylko do otwierania drzwi: "
+"\"ajax/door\" oraz do włączania/wyłączania projektora: \"ajax/projector\")"
+
+#: .\usersystem\models.py:46
+msgid "icon-name"
+msgstr "plik z ikoną"
+
+#: .\usersystem\models.py:47
+msgid ""
+"Filename of icon from static/icon dir which will be presented on a card."
+msgstr ""
+"Nazwa pliku z ikoną z folderu static/icon, która będzie prezentowana na "
+"karcie"
+
+#: .\usersystem\models.py:48
+msgid "bgcolor"
+msgstr "kolor tła"
+
+#: .\usersystem\models.py:49
+msgid "textcolor"
+msgstr "kolor tekstu"
+
+#: .\usersystem\models.py:54
+msgid "description"
+msgstr "opis"
+
+#: .\usersystem\models.py:57
+msgid "front link"
+msgstr "link strony głównej"
+
+#: .\usersystem\models.py:58
+msgid "front links"
+msgstr "linki strony głównej"
+
+#: .\usersystem\models.py:71
+msgid "email address"
+msgstr "adres e-mail"
+
+#: .\usersystem\models.py:72
+msgid "first name"
+msgstr "imię"
+
+#: .\usersystem\models.py:73
+msgid "last name"
+msgstr "nazwisko"
+
+#: .\usersystem\models.py:74
+msgid "active"
+msgstr "aktywny"
+
+#: .\usersystem\models.py:75
+msgid "staff"
+msgstr "w zarządzie"
+
+#: .\usersystem\models.py:76
+msgid "date joined"
+msgstr "data dołączenia"
+
+#: .\usersystem\models.py:77
+msgid "candidate"
+msgstr "kandydat"
+
+#: .\usersystem\models.py:78
+msgid "phone"
+msgstr "numer telefonu"
+
+#: .\usersystem\models.py:79
+msgid "function"
+msgstr "funkcja"
+
+#: .\usersystem\models.py:80
+msgid "Position in NKRSI. If blank it will be depended on candidate status."
+msgstr ""
+"Funkcja w NKRSI. Jeżeli puste, to zostanie wypełnione na podstawie innych "
+"pól."
+
+#: .\usersystem\models.py:88
+msgid "user"
+msgstr "członek"
+
+#: .\usersystem\models.py:89
+msgid "users"
+msgstr "członkowie"
+
+#: .\usersystem\models.py:123 .\usersystem\models.py:126
+msgid "Failed to send invitation. Error: "
+msgstr "Nie udało się wysłać zaproszenia do Slacka. Błąd: "
+
+#: .\usersystem\models.py:128
+msgid "Invitation to Slack has been sent"
+msgstr "Zaproszenie do Slacka zostało wysłane"
+
+#: .\usersystem\models.py:137
+msgid "request date"
+msgstr "data żądania"
+
+#: .\usersystem\models.py:139
+msgid "succeeded"
+msgstr "udało się"
+
+#: .\usersystem\models.py:142
+msgid "Door open request"
+msgstr "Żądanie otwarcia drzwi"
+
+#: .\usersystem\models.py:145
+msgid "door open request"
+msgstr "żądanie otwarcia drzwi"
+
+#: .\usersystem\models.py:146
+msgid "door open requests"
+msgstr "żądania otwarcia drzwi"
+
+#: .\usersystem\views.py:85
+msgid "Password changed"
+msgstr "Hasło zostało zmienione"
