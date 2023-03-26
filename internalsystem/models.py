@@ -4,14 +4,17 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
 from usersystem.models import User
+
+
 # Create your models here.
 
 
 class FrontLink(models.Model):
     url = models.CharField(_('url'), max_length=200)
-    type = models.IntegerField(_('type'), choices=((1, _('withoutAJAX')), (2, _('localWithAJAX'))),
-                               help_text=_('"withoutAJAX" means standard link, "localWithAJAX" means local links '
-                                           'accessible using AJAX technology'))
+    type = models.IntegerField(_('type'), choices=((1, _('standard')), (2, _('localWithAJAX')), (3, _('external'))),
+                               help_text=_('"standard" means standard link, "localWithAJAX" means local links '
+                                           'accessible using AJAX technology, "external" means standard link '
+                                           'that would be open in a new tab'))
     icon = models.CharField(_('icon-name'), null=True, max_length=30, blank=True,
                             help_text=_('Filename of icon from static/icon dir which will be presented on a card.'))
     bgcolor = ColorField(_('bgcolor'), default='#000000')
@@ -46,7 +49,6 @@ class FAQ(models.Model):
 
 
 class DoorOpenLog(models.Model):
-
     date = models.DateTimeField(_('request date'), default=timezone.now, editable=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
     succeeded = models.BooleanField(_('succeeded'))

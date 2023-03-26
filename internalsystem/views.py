@@ -6,8 +6,6 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from pypjlink import Projector
 
-#TODO
-# from usersystem.models import FAQ, DoorOpenLog, FrontLink
 from internalsystem.models import FAQ, DoorOpenLog, FrontLink
 # Create your views here.
 

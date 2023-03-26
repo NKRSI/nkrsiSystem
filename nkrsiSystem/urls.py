@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('internal/', include('usersystem.urls')),
     path('internal/', include('internalsystem.urls')),
+    path('internal/', include('resource_monitoring.urls')),
+    path('', include('frontpage.urls')),
 ]
 
 if settings.DEBUG:

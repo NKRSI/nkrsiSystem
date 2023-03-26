@@ -1,16 +1,17 @@
+import base64
 import io
 import json
+from datetime import date, timedelta
 
-import base64
-import seaborn as sns
 import matplotlib.pyplot as plt
-
 import pandas as pd
-from django.shortcuts import render
+import seaborn as sns
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
-from resource_monitoring.tasks import fetch_resources_usage_dataframes, process_ram_data, process_cpu_cores_temperature
 from resource_monitoring.models import ResourceUsage
+from resource_monitoring.tasks import fetch_resources_usage_dataframes, process_ram_data, process_cpu_cores_temperature
+
 
 @login_required()
 def resources_dashboard(request):
@@ -30,9 +31,10 @@ def resources_dashboard(request):
 
 @login_required()
 def stat_plots(request):
+    last_week = date.today() - timedelta(days=7)
     table_gateway = ResourceUsage
     query_object = table_gateway.objects
-    query_object = query_object.all().order_by('server', 'timestamp')
+    query_object = query_object.filter(timestamp__gte=last_week).order_by('server', 'timestamp')
     record_set = query_object.values()
 
     data = record_set
@@ -55,7 +57,8 @@ def stat_plots(request):
     fig, axs = plt.subplots(1, len(servers), figsize=(14, 7))
 
     for ax, s in zip(axs, servers):
-        sns.lineplot(data=cpu_data[cpu_data['server'] == s], x="timestamp", y="input", hue='index', legend='full', ax=ax)
+        sns.lineplot(data=cpu_data[cpu_data['server'] == s], x="timestamp", y="input", hue='index', legend='full',
+                     ax=ax)
         ax.set_title(s)
 
     buffer = io.BytesIO()

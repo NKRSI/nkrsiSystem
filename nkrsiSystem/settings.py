@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from . import config
+from celery.schedules import timedelta
+
+# PATTEN 5 Registry
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -70,6 +73,8 @@ INSTALLED_APPS = [
     'colorfield',
     'phonenumber_field',
     'internalsystem',
+    'resource_monitoring',
+    'frontpage',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -180,6 +185,8 @@ ROCKET_ADD_USER_URL = config.ROCKET_ADD_USER_URL
 PROJECTOR_IP = config.PROJECTOR_IP
 DOOR_ENDPOINT = config.DOOR_ENDPOINT
 
+RESOURCE_MONITORING_PORT = config.RESOURCE_MONITORING_PORT
+
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/internal/accounts/login'
 
@@ -190,3 +197,12 @@ GOOGLE_MAPS_API_KEY = config.GOOGLE_MAPS_API_KEY
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+CELERY_BROKER_URL = config.CELERY_BROKER_URL
+CELERY_RESULT_BACKEND = config.CELERY_RESULT_BACKEND
+
+CELERY_BEAT_SCHEDULE = {
+      'dump-resources-usage-every-hour': {
+        'task': 'resource_monitoring.tasks.dump_resources_usage',
+        'schedule': timedelta(hours=1),
+    },
+}
