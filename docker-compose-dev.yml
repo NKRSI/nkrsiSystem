@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nkrsi-system:
+    build: .
+    ports:
+      - "8000:80"
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - REDIS_HOST=192.168.1.2
+      - REDIS_PORT=6379
+      - RESOURCE_MONITORING_PORT=11223
+  postgres:
+    image: "postgres:11"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=robotUJ993
+    ports:
+      - "5432:5432"
