@@ -45,3 +45,5 @@ python manage.py createsuperuser
 ```
 You will be asked for email and password.
 
+lol
+
