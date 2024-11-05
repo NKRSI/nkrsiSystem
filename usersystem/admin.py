@@ -6,7 +6,7 @@ from usersystem.models import User
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     fields = (
-        'email', ('first_name', 'last_name'), ('is_candidate', 'is_staff', 'is_active', 'is_superuser'), 'function',
+        'email', ('first_name', 'last_name'), 'github_username', ('is_candidate', 'is_staff', 'is_active', 'is_superuser'), 'function',
         'phone', 'date_joined')
 
     def save_model(self, request, obj: User, form, change):
