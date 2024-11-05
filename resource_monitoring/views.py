@@ -8,6 +8,7 @@ import pandas as pd
 import seaborn as sns
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.http import HttpResponse
 
 from resource_monitoring.models import ResourceUsage
 from resource_monitoring.tasks import fetch_resources_usage_dataframes, process_ram_data, process_cpu_cores_temperature
@@ -38,6 +39,10 @@ def stat_plots(request):
     record_set = query_object.values()
 
     data = record_set
+
+    if not data:
+        return HttpResponse("NO data available", content_type="text/plain")
+
     for data_entry in data:
         data_entry['gpu_data'] = pd.read_csv(io.StringIO(data_entry['gpu_data']))
         data_entry['ram_data'] = process_ram_data(pd.read_csv(io.StringIO(data_entry['ram_data']), sep='\t'))
