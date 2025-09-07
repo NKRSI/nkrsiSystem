@@ -8,7 +8,7 @@ Copy [configDefault.py](nkrsiSystem/configDefault.py) as [config.py](nkrsiSystem
 
 Run:
 ```shell
-docker-compose -f docker-compose-dev.yml up --build -d
+docker compose -f docker-compose-dev.yml up --build -d
 ```
 
 Docker image for your app should be built and postgres docker image should be pulled. Your app should be running at [127.0.0.1:8000](127.0.0.1:8000).
@@ -29,7 +29,7 @@ It is more convenient way of developing because after changing file at your PC w
 
 Run:
 ```shell
-docker-compose -f docker-postgres.yml up -d
+docker compose -f docker-postgres.yml up -d
 ```
 
 To run app use the following command:
